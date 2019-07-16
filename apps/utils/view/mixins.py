@@ -24,7 +24,7 @@ class CreateModelMixin(object):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         # return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-        return simple_response(data=serializer.data, code=response_code.SUCCESS, headers=headers, message="Created.")
+        return simple_response(data=serializer.data, code=response_code.SUCCESS[0], headers=headers, message="Created.")
 
     def perform_create(self, serializer):
         serializer.save()
@@ -51,7 +51,7 @@ class ListModelMixin(object):
 
         serializer = self.get_serializer(queryset, many=True)
         # return Response(serializer.data)
-        return simple_response(data=serializer.data, code=response_code.SUCCESS, message="ok.")
+        return simple_response(data=serializer.data, code=response_code.SUCCESS[0], message="ok.")
 
 
 class RetrieveModelMixin(object):
@@ -63,7 +63,7 @@ class RetrieveModelMixin(object):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         # return Response(serializer.data)
-        return simple_response(data=serializer.data, code=response_code.SUCCESS, message="ok.")
+        return simple_response(data=serializer.data, code=response_code.SUCCESS[0], message="ok.")
 
 
 class UpdateModelMixin(object):
@@ -86,7 +86,7 @@ class UpdateModelMixin(object):
 
         # return Response(serializer.data)
 
-        return simple_response(data=serializer.data, code=response_code.SUCCESS, message="updated.")
+        return simple_response(data=serializer.data, code=response_code.SUCCESS[0], message="updated.")
 
     def perform_update(self, serializer):
         serializer.save()
@@ -105,7 +105,7 @@ class DestroyModelMixin(object):
         instance = self.get_object()
         self.perform_destroy(instance)
         # return Response(status=status.HTTP_204_NO_CONTENT)
-        return simple_response(code=response_code.SUCCESS, message="deleted.")
+        return simple_response(code=response_code.SUCCESS[0], message="deleted.")
 
     def perform_destroy(self, instance):
         instance.delete()
