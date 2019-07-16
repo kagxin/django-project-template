@@ -46,7 +46,7 @@ DJANGO_APPS = [
 
 THIRD_APPS = [
     'rest_framework',
-    # 'django_filters',
+    'rest_framework_filters',
     'corsheaders',
 ]
 
@@ -124,6 +124,9 @@ DATETIME_FORMAT = 'Y-m-d H:i:s'
 TIME_FORMAT = 'H:i:s'
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.RestFrameworkFilterBackend',
+    ),
     'EXCEPTION_HANDLER': 'apps.utils.exception_handler.exception_handler',
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
