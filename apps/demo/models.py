@@ -11,6 +11,9 @@ class Reporter(models.Model):
     def __str__(self):
         return self.full_name
 
+    class Meta:
+        ordering = ['-id']
+
 
 class Article(models.Model):
     pub_date = models.DateField()
@@ -20,3 +23,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.headline
+
+    class Meta:
+        ordering = ['-id']

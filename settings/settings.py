@@ -161,6 +161,115 @@ JWT_AUTH = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 
+
+
+# logging settings cloghandler.ConcurrentRotatingFileHandler 可能会对性能有一定影响注意
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] '
+                      '[%(module)s:%(funcName)s] [%(levelname)s]- %(message)s'}
+    },
+    'filters': {
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+        'default': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/all.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'error': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/error.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+        'request_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/script.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'scripts_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/script.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'view_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/view.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'request_info_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/request_info.log',
+            'maxBytes': 1024 * 1024 * 50,
+            'backupCount': 5,
+            'formatter': 'standard',
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django': {
+            'handlers': ['default', 'console'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'django.request': {
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'scripts': {
+            'handlers': ['scripts_handler'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'view': {
+            'handlers': ['view_handler'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'request_info_logger': {
+            'handlers': ['request_info_handler'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -179,6 +288,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
 
 
 # ==================

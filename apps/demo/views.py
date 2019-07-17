@@ -4,7 +4,7 @@ from apps.utils.view.viewsets import ModelViewSet
 from apps.demo.serializers import *
 from apps.utils.pagination import DefaultResultsSetPagination
 from apps.demo import filters
-
+import logging
 
 # Create your views here.
 
@@ -20,6 +20,11 @@ class ArticleViewSet(ModelViewSet):
     queryset = Article.objects.all()
     pagination_class = DefaultResultsSetPagination
     filter_class = filters.ProductFilter
+
+    def list(self, request, *args, **kwargs):
+        log = logging.getLogger('view')
+        log.info(f'{request.user}')
+        return super().list(request, *args, **kwargs)
 
 
 class ReporterViewSet(ModelViewSet):
