@@ -72,7 +72,6 @@ class ViewSetMixin:
         cls.basename = None
 
         # actions must not be empty
-        print(actions)
         if not actions:
             raise TypeError("The `actions` argument must be provided when "
                             "calling `.as_view()` on a ViewSet. For example "
@@ -102,7 +101,6 @@ class ViewSetMixin:
 
             # Bind methods to actions
             # This is the bit that's different to a standard view
-            print(actions)
             for method, action in actions.items():
                 handler = getattr(self, action)
 

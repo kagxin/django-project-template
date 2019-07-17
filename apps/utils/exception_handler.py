@@ -49,7 +49,6 @@ def custom_exception_handler(exc, context):
             code, message = response_code.ERR_METHOD_NOT_ALLOWED
         else:
             code, message = response_code.ERR_UNKNOWN_ERROR
-            print(exc.status_code)
         return simple_response(code=code,  data=data, message=message, headers=headers)
 
     elif isinstance(exc, CustomAPIException):  # 捕获自定义的异常

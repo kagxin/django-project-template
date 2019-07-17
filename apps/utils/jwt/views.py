@@ -46,7 +46,6 @@ class SaveTokenToCacheMixin:
 
         cache_key = 'user:jwt:{user_id}'.format(user_id=payload[self.user_id_filed_name])
         caches['token'].set(cache_key, token, timeout=None)
-        print(cache_key, token)
         return response
 
 
@@ -62,7 +61,6 @@ class CheckTokenChangedAndSaveMixin(SaveTokenToCacheMixin):
     def post(self, request, *args, **kwargs):
         serializer = VerifyJSONWebTokenSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        print(serializer.data)
         user = serializer.data.get('user')
         token = serializer.data.get('token')
         cache_key = 'user:jwt:{user_id}'.format(user_id=user.id)
