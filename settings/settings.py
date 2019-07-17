@@ -132,8 +132,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'apps.utils.jwt.authentication.CheckTokenChangeAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        # 'apps.utils.jwt.authentication.CheckTokenChangeAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
