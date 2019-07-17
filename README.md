@@ -1,14 +1,16 @@
 # django-template
 > Python django project template
-一个携带常用模块和定制化的django的工程模板，为了快速启动一个工程进行开发
+一个携带常用模块和定制化的django的工程模板，为了快速启动一个工程进行开发,减少配置工程带来的工作量
 
 ## demo
 > apps/demo 这个app是一个示例app 
 
 ## 特点
+* 环境变量区分站点类型 SITE_TYPE=staging, SITE_TYPE=production
 * 重写mixin的Response使http状态码为固定200
 * 使用http接口返回数据格式为固定为,code message data 三个字段
 * 重写exception_handler,使其支持 CustomAPIException,方便raise 自定义异常
+
 > 使用示例请见app demo
 
 ### 一些可能使用功能or模块用
