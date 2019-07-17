@@ -6,6 +6,7 @@ ERR_PARAM_ERROR = (40000, "Params error")
 ERR_AUTH_ERROR = (40001, "Unauthorized")
 ERR_PERMISSION_ERROR = (40003, "Forbidden")
 ERR_METHOD_NOT_ALLOWED = (40005, "Method Not Allowed")
+ERR_LOGIN_OTHER_CLIENT_ERROR = (40006, "Your account has been logged in elsewhere.")
 
 ERR_SERVER_ERROR = (50000, "HTTP-Internal Server Error")
 ERR_UNKNOWN_ERROR = (50001, 'Unknown ERROR')

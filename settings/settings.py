@@ -136,7 +136,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
-    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'DATE_FORMAT': '%Y-%m-%d',
     'DATE_INPUT_FORMATS': (
         '%Y-%m-%d', ISO_8601
