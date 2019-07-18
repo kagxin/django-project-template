@@ -108,3 +108,7 @@ DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 # STATICFILES_STORAGE = 'aliyun_oss2_storage.backends.AliyunStaticStorage'
 
 ```
+
+## TODO
+* Dockerfile
+* docker-compose
