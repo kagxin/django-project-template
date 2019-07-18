@@ -160,8 +160,8 @@ JWT_AUTH = {
 ## cors
 CORS_ORIGIN_ALLOW_ALL = True
 
-
-
+## custome user
+AUTH_USER_MODEL = 'account.UserProfile'
 
 # logging settings cloghandler.ConcurrentRotatingFileHandler 可能会对性能有一定影响注意
 
@@ -288,6 +288,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 
 

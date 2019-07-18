@@ -63,3 +63,48 @@ urlpatterns = [
     "data": {}
 }
 ```
+#### 自定User
+> 自定义user在account.model.UserPrfile, 可以对其删减字段重新migrate
+
+```python
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+class UserProfile(AbstractUser):
+    """
+    用户
+    """
+    name = models.CharField(max_length=30, null=True, blank=True, verbose_name="姓名")
+    birthday = models.DateField(null=True, blank=True, verbose_name="出生年月")
+    gender = models.CharField(max_length=6, choices=(("male", u"男"), ("female", "女")), default="female",
+                              verbose_name="性别", blank=True)
+    mobile = models.CharField(null=True, blank=True, max_length=11, verbose_name="电话")
+    image = models.ImageField(blank=True, null=True,
+                              upload_to="image/%Y/%m/%d")
+
+    class Meta:
+        verbose_name = "用户"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.username
+
+```
+
+#### 添加oss上传storage [django-aliyun-oss2-storage](https://github.com/xiewenya/django-aliyun-oss2-storage)
+> 配置文件中把对应的配置添加完成之后，可以到admin使用account UserPrfile中的image字段测试
+
+```python
+
+## oss
+ACCESS_KEY_ID = "****"
+ACCESS_KEY_SECRET = "****"
+END_POINT = "oss-cn-shanghai.aliyuncs.com"
+BUCKET_NAME = "****"
+ALIYUN_OSS_CNAME = "" # 自定义域名，如果不需要可以不填写
+BUCKET_ACL_TYPE = "private" # private, public-read, public-read-write
+# mediafile将自动上传
+DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
+# staticfile将自动上传
+# STATICFILES_STORAGE = 'aliyun_oss2_storage.backends.AliyunStaticStorage'
+
+```

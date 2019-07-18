@@ -47,3 +47,15 @@ MONGODB_DATABASES = {
 }
 
 ## other local setting
+
+## oss
+ACCESS_KEY_ID = "****"
+ACCESS_KEY_SECRET = "****"
+END_POINT = "oss-cn-shanghai.aliyuncs.com"
+BUCKET_NAME = "****"
+ALIYUN_OSS_CNAME = "" # 自定义域名，如果不需要可以不填写
+BUCKET_ACL_TYPE = "private" # private, public-read, public-read-write
+# mediafile将自动上传
+# DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
+# staticfile将自动上传
+# STATICFILES_STORAGE = 'aliyun_oss2_storage.backends.AliyunStaticStorage'
