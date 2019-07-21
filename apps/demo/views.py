@@ -23,7 +23,7 @@ class ArticleViewSet(ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         log = logging.getLogger('view')
-        log.info(f'{request.user}')
+        log.info('{}'.format(request.user))
         return super().list(request, *args, **kwargs)
 
 
