@@ -1,4 +1,4 @@
-# django-template
+# django-project-template
 > Python django project template
 一个携带常用模块和定制化的django的工程模板，为了快速启动一个工程进行开发,减少配置工程带来的工作量
 
