@@ -135,4 +135,4 @@ docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 mana
 * ok 访问7000端口
 >http://localhost:7000/api/v1/demo/demo/
 
-* [在线示例](http://47.94.110.194:7000/api/v1/demo/article/)
+* [在线示例](http://47.94.110.194:7000/api/v1/demo/article/) username: admin password: admin123
