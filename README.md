@@ -7,14 +7,14 @@
 
 ## 特点
 * 环境变量区分站点类型 SITE_TYPE=staging, SITE_TYPE=production
-* 重写mixin的Response使http状态码为固定200
+* 重写drf mixin类的Response使http状态码为固定200
 * 使用http接口返回数据格式为固定为,code message data 三个字段
 * 重写exception_handler,使其支持 CustomAPIException,方便raise 自定义异常
 
 > 使用示例请见app demo
 
 ### 一些可能使用功能or模块用
-#### 校验token是否改变（可用于自同时只允许一个用户登录）
+#### 校验token是否改变（可用于同时只允许一个用户登录）
 * setting.py *DEFAULT_AUTHENTICATION_CLASSES* 中使用  apps.utils.exception_handler.exception_handler
 
 ```python
@@ -109,7 +109,7 @@ DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 
 ```
 
-## 使用docker运行工程
+## 使用docker启动工程
 
 * build 镜像，并启动
 ```bash
@@ -119,7 +119,6 @@ docker-compose up
 ```bash
 docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate"
 ```
-* 访问7000端口
-
+* ok 访问7000端口
 http://localhost:7000/api/v1/demo/demo/
 
