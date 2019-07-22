@@ -1,0 +1,38 @@
+# Docker-compose.yml file for kagxin/django_template project
+version: "3"
+services:
+    mysql:
+        image: mysql
+        container_name: mysqldb
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=django_template
+        restart: always
+        command: [
+            '--character-set-server=utf8mb4',
+            '--collation-server=utf8mb4_unicode_ci',
+            '--default-time-zone=+8:00'
+        ]
+
+    redis:
+        image: redis
+        container_name: redisdb
+        restart: always
+
+    django_template:
+        container_name: django_template_app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "7000:8000"
+        environment:
+            - mysqlhost=mysqldb
+            - redishost=redisdb
+        depends_on:
+            - mysql
+            - redis
+        links:
+            - "mysql:mysqldb"
+            - "redis:redisdb"
+        restart: always
