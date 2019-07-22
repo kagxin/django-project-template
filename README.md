@@ -108,6 +108,19 @@ DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 # STATICFILES_STORAGE = 'aliyun_oss2_storage.backends.AliyunStaticStorage'
 
 ```
+#### 
+
+#### 修改默认分页类
+```python
+from rest_framework.pagination import PageNumberPagination
+class DefaultResultsSetPagination(PageNumberPagination):
+    page_size = 20  #默认单页面20个
+    page_size_query_param = 'page_size' #可通过该参数自己设置每页多少个
+    page_query_param = "page_index"  #t通过该参数选择多少页
+    max_page_size = 100     #通过url修改参数  最大单页面100个
+```
+> /api/v1/demo/article/?page_size=1&page_index=1
+
 
 ## 使用docker启动工程
 
@@ -115,10 +128,12 @@ DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 ```bash
 docker-compose up
 ```
-* 执行迁移
+* 执行迁移,收集静态文件
 ```bash
 docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate"
+docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py collectstatic"
 ```
 * ok 访问7000端口
-http://localhost:7000/api/v1/demo/demo/
+>http://localhost:7000/api/v1/demo/demo/
+
 
