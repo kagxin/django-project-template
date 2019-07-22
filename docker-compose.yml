@@ -1,4 +1,4 @@
-# Docker-compose.yml file for kagxin/django_template project
+# Docker-compose.yml file for kagxin/django_project_template project
 version: "3"
 services:
     mysql:
