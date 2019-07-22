@@ -130,12 +130,9 @@ docker-compose up
 ```
 * 执行迁移,添加admin用户,收集静态文件
 ```bash
-docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate"
-docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py createsuperuser"
-docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py collectstatic"
-
+docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate && python3 manage.py collectstatic && python3 manage.py createsuperuser"
 ```
 * ok 访问7000端口
 >http://localhost:7000/api/v1/demo/demo/
 
-
+* [在线示例](http://47.94.110.194:7000/api/v1/demo/article/)
