@@ -2,7 +2,7 @@
 version: "3"
 services:
     mysql:
-        image: mysql
+        image: mysql:5.6
         container_name: mysqldb
         environment:
             - MYSQL_ROOT_PASSWORD=root
