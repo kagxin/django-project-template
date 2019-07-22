@@ -109,6 +109,13 @@ DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 
 ```
 
-## TODO
-* Dockerfile
-* docker-compose
+## 使用docker运行工程
+* build 镜像，并启动
+```bash
+docker-compose up
+```
+* 执行迁移
+```bash
+docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate"
+```
+
