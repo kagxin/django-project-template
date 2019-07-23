@@ -1,0 +1,12 @@
+language: python
+
+python:
+    - '3.5'
+
+install:
+    - pip install -r requirements.txt
+
+env:
+    - SITE_TYPE=ci
+
+script: python manage.py test  # 如果有单元测试这里应该执行单元测试

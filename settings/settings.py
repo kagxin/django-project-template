@@ -306,6 +306,8 @@ elif site_env == 'staging':
     from .staging import *  # NOQA
 elif site_env == 'local':
     from .local import *  # NOQA
+elif site_env == 'ci':
+    from .ci import *
 else:
     raise Exception("Env[SITE_TYPE] error!")
 
