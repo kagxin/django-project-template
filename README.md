@@ -1,7 +1,7 @@
 # django-project-template
 [![Build Status](https://travis-ci.org/kagxin/django-project-template.svg?branch=master)](https://travis-ci.org/kagxin/django-project-template)
 [![Language](https://img.shields.io/badge/language-python-blue.svg)](https://python.org/)
-[![LICENSE](https://img.shields.io/github/license/pingcap/tidb.svg)](https://github.com/pingcap/tidb/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-MIT-000000.svg)](https://github.com/kagxin/django-project-template/blob/master/LICENSE)
 
 
 > Python django project template
