@@ -4,7 +4,7 @@ from apps.demo.views import *
 
 router = DefaultRouter()
 router.register('article', ArticleViewSet, basename='article')
-router.register('reporter', ReporterViewSet, basename='article')
+router.register('reporter', ReporterViewSet, basename='reporter')
 
 
 urlpatterns = [

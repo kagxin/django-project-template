@@ -133,6 +133,6 @@ docker-compose up
 docker exec -it django_template_app sh -c "cd /home/docker/code/ && python3 manage.py migrate && python3 manage.py collectstatic && python3 manage.py createsuperuser"
 ```
 * ok 访问7000端口
->http://localhost:7000/api/v1/demo/demo/
+>http://localhost:7000/api/v1/demo/
 
-* [在线示例](http://47.94.110.194:7000/api/v1/demo/article/) username: admin password: admin123
+* [在线示例](http://47.94.110.194:7000/api/v1/demo/) username: admin password: admin123
