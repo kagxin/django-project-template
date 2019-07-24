@@ -5,6 +5,7 @@ SUCCESS = (0, "Success")
 ERR_PARAM_ERROR = (40000, "Params error")
 ERR_AUTH_ERROR = (40001, "Unauthorized")
 ERR_PERMISSION_ERROR = (40003, "Forbidden")
+ERR_NOT_FOUND_ERROR = (40004, "Not Found")
 ERR_METHOD_NOT_ALLOWED = (40005, "Method Not Allowed")
 ERR_TOKEN_CHANGED_ERROR = (40006, "Token has been changed.")
 

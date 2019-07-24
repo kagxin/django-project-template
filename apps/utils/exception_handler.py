@@ -43,6 +43,8 @@ def custom_exception_handler(exc, context):
             code, message = response_code.ERR_AUTH_ERROR
         elif exc.status_code == 403:
             code, message = response_code.ERR_PERMISSION_ERROR
+        elif exc.status_code == 404:
+            code, message = response_code.ERR_NOT_FOUND_ERROR
         elif exc.status_code == 500:
             code, message = response_code.ERR_SERVER_ERROR
         elif exc.status_code == 405:
