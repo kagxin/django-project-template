@@ -48,6 +48,7 @@ THIRD_APPS = [
     'rest_framework',
     'rest_framework_filters',
     'corsheaders',
+    'django_extensions'
 ]
 
 LOCAL_APPS = [
