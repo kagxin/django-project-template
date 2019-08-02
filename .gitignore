@@ -1,6 +1,8 @@
 # pycharm IDE
 .idea/
-
+# celerybeat.pid
+celerybeat-schedule
+*.pid
 # vscode IDE
 .vscode/
 

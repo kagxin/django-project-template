@@ -48,11 +48,13 @@ THIRD_APPS = [
     'rest_framework',
     'rest_framework_filters',
     'corsheaders',
-    'django_extensions'
+    'django_extensions',
+    'django_celery_beat',
 ]
 
 LOCAL_APPS = [
     'apps.account',
+    'apps.schedule',
     'apps.demo'
 ]
 
@@ -294,7 +296,18 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     # os.path.join(BASE_DIR, "apps/static"),
 )
-
+# ==================
+# = celery
+# ==================
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/1'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ENABLE_UTC = False
+DJANGO_CELERY_BEAT_TZ_AWARE = True
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 # ==================
 # = Configurations from other file

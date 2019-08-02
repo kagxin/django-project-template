@@ -311,6 +311,17 @@ class DefaultResultsSetPagination(PageNumberPagination):
 python manage.py runscript sayhello
 ```
 
+### celery
+*celery worker*
+```bash
+celery -A settings worker -l info
+```
+*celery beat*
+
+```bash
+celery -A settings beat -l info
+```
+
 ## 使用docker启动工程
 
 * build 镜像，并启动

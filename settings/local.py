@@ -21,7 +21,7 @@ redis_host = os.environ.get('redishost', '127.0.0.1')
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://{}:6379/1".format(redis_host),
+        "LOCATION": "redis://{}/1".format(redis_host),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": ""
@@ -29,7 +29,7 @@ CACHES = {
     },
     "token": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/2",
+        "LOCATION": "redis://{}/2".format(redis_host),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": "",
@@ -60,3 +60,11 @@ BUCKET_ACL_TYPE = "private" # private, public-read, public-read-write
 # DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 # staticfile将自动上传
 # STATICFILES_STORAGE = 'aliyun_oss2_storage.backends.AliyunStaticStorage'
+
+# ==================
+# = celery
+# ==================
+CELERY_BROKER_URL = 'redis://{}/1'.format(redis_host)
+CELERY_RESULT_BACKEND = 'redis://{}/1'.format(redis_host)
+
+
