@@ -1,6 +1,6 @@
 djangorestframework==3.10.0
 djangorestframework-jwt==1.11.0
-django==2.2.3
+django~>2.2.4
 mongoengine==0.18.2
 mysqlclient==1.4.2.post1
 requests==2.22.0
