@@ -1,4 +1,5 @@
 import os
+
 """
 create database django_template character set utf8;
 """
@@ -54,8 +55,8 @@ ACCESS_KEY_ID = "****"
 ACCESS_KEY_SECRET = "****"
 END_POINT = "oss-cn-shanghai.aliyuncs.com"
 BUCKET_NAME = "****"
-ALIYUN_OSS_CNAME = "" # 自定义域名，如果不需要可以不填写
-BUCKET_ACL_TYPE = "private" # private, public-read, public-read-write
+ALIYUN_OSS_CNAME = ""  # 自定义域名，如果不需要可以不填写
+BUCKET_ACL_TYPE = "private"  # private, public-read, public-read-write
 # mediafile将自动上传
 # DEFAULT_FILE_STORAGE = 'aliyun_oss2_storage.backends.AliyunMediaStorage'
 # staticfile将自动上传
@@ -66,5 +67,15 @@ BUCKET_ACL_TYPE = "private" # private, public-read, public-read-write
 # ==================
 CELERY_BROKER_URL = 'redis://{}/1'.format(redis_host)
 CELERY_RESULT_BACKEND = 'redis://{}/1'.format(redis_host)
-
-
+MIDDLEWARE = [
+                 'corsheaders.middleware.CorsMiddleware',
+                 'django.middleware.security.SecurityMiddleware',
+                 'django.contrib.sessions.middleware.SessionMiddleware',
+                 'django.middleware.common.CommonMiddleware',
+                 'django.middleware.csrf.CsrfViewMiddleware',
+                 'django.contrib.auth.middleware.AuthenticationMiddleware',
+                 'django.contrib.messages.middleware.MessageMiddleware',
+                 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+             ] + [
+                 'apps.utils.middleware.request_log_middleware.RequestLogMiddleware'
+             ]

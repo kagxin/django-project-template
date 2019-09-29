@@ -325,16 +325,5 @@ elif site_env == 'ci':
 else:
     raise Exception("Env[SITE_TYPE] error!")
 
-"""
-# if use mongodb
-from mongoengine import connect
-connect(
-    db=MONGODB_DATABASES['default']['name'],
-    username=MONGODB_DATABASES['default']['username'],
-    password=MONGODB_DATABASES['default']['password'],
-    host=MONGODB_DATABASES['default']['host'].split(":")[0],
-    port=int(MONGODB_DATABASES['default']['host'].split(":")[1]),
-)
-"""
 
 
