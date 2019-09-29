@@ -311,6 +311,26 @@ class DefaultResultsSetPagination(PageNumberPagination):
 python manage.py runscript sayhello
 ```
 
+### 打印完整请求日志的中间件（生产环境不要使用）
+> apps/utils/middleware/request_log_middleware.py
+日志或输出在logs/request_info.log中
+
+```bash
+MIDDLEWARE = [
+                 'corsheaders.middleware.CorsMiddleware',
+                 'django.middleware.security.SecurityMiddleware',
+                 'django.contrib.sessions.middleware.SessionMiddleware',
+                 'django.middleware.common.CommonMiddleware',
+                 'django.middleware.csrf.CsrfViewMiddleware',
+                 'django.contrib.auth.middleware.AuthenticationMiddleware',
+                 'django.contrib.messages.middleware.MessageMiddleware',
+                 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+             ] + [
+                 'apps.utils.middleware.request_log_middleware.RequestLogMiddleware'
+             ]
+```
+
+
 ### celery
 *celery worker*
 ```bash
