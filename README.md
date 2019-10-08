@@ -311,7 +311,7 @@ class DefaultResultsSetPagination(PageNumberPagination):
 python manage.py runscript sayhello
 ```
 
-### 打印完整请求日志的中间件（生产环境不要使用）
+### 打印完整请求日志的中间件(不要在生产环境使用)
 > apps/utils/middleware/request_log_middleware.py
 日志输出在logs/request_info.log中
 
