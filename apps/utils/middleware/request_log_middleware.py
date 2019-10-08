@@ -11,7 +11,7 @@ class RequestLogMiddleware(MiddlewareMixin):
         try:
             req_id = uuid.uuid1()
             request.req_id = req_id
-            log.error("\nRequest[{}]==========>"
+            log.info("\nRequest[{}]==========>"
                       "\nmethod:{}"
                       "\npath:{}"
                       "\nauth:{}"
