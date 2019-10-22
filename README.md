@@ -341,6 +341,16 @@ celery -A settings worker -l info
 ```bash
 celery -A settings beat -l info
 ```
+*celery flower*
+> 使用 celery flower 作为监控程序的时候，要使用rabbitmq作为broker
+
+```
+CELERY_BROKER_URL = 'amqp://root:root@localhost:5672//'
+```
+启动 flower
+```bash
+celery flower --broker=amqp://root:root@localhost:5672// --broker_api=amqp://root:root@localhost:15672/api/
+```
 
 ## 使用docker启动工程
 
