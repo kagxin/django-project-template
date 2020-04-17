@@ -10,7 +10,7 @@ PySnooper==0.2.2
 #git+https://github.com/philipn/django-rest-framework-filters.git
 djangorestframework-filters==1.0.0.dev0
 ipython==7.6.1
-Pillow==6.2.0
+Pillow>=6.2.2
 django-aliyun-oss2-storage==0.1.5
 django-extensions==2.2.1
 celery==4.3.0
