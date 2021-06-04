@@ -1,6 +1,6 @@
 djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
-django==2.2.20
+django==2.2.21
 mysqlclient==1.4.6
 requests==2.22.0
 redis==3.2.1
